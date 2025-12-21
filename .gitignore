@@ -1,0 +1,27 @@
+# virtual environment
+LLM1/
+
+# python cache
+__pycache__/
+*.pyc
+
+# streamlit
+.streamlit/
+
+# env vars
+.env
+
+# OS junk
+.DS_Store
+
+## txt files
+start_README.txt
+
+## csv files 
+all_models493.csv
+example_trading_data_models493.csv
+test.csv
+
+## .ipynb files
+*.ipynb
+.ipynb_checkpoints/
