@@ -4,14 +4,14 @@
 - This repository contains a prototype interactive electricity analytics application aimed at bridging the gap between electricity price predictions and electricity trading results, enabling users without coding experience to explore, analyze, and understand complex electricity market data through guided analytics and LLM-powered insights.
 
 - The app allows users to import CSV datasets containing electricity forecasts, actual prices, and trading outcomes, and then analyze them in two complementary ways:
-	1.LLM-Driven Analysis
-	    • Users can ask natural-language questions about their data.
-	    • A Hugging Face Large Language Model (LLM) generates Python/Pandas code on the fly to perform custom analysis, aggregations, and transformations.
-	    • This enables flexible, ad-hoc exploration without writing code manually.
-    2.Pre-Built Analytics Sections
-	    • Forecast / Training Analysis:
+	- 1.LLM-Driven Analysis
+	    - Users can ask natural-language questions about their data.
+	    - A Hugging Face Large Language Model (LLM) generates Python/Pandas code on the fly to perform custom analysis, aggregations, and transformations.
+	    - This enables flexible, ad-hoc exploration without writing code manually.
+    - 2.Pre-Built Analytics Sections
+	    - Forecast / Training Analysis:
             - Pre-selected analyses focused on model training and prediction performance (e.g., distributions, feature behavior).
-	    • Trading Results Analysis:
+	    - Trading Results Analysis:
             - Pre-selected analyses focused on trading outcomes, gains/losses, signals, and strategy performance.
 
 - The backend is built using FastAPI, providing a lightweight API layer that connects data ingestion, LLM-generated analysis, and structured results. Together, this app serves as a practical tool for exploring how electricity price predictions translate into real-world trading performance.
