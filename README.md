@@ -96,19 +96,19 @@ LLM_Fastapi/
 - **test_trade_data.csv**: Example dataset for the "Prediction_Explorer" page and can also be using on the main LLM app
 - **test_trade_results_data.csv**: Example dataset for the "Trade_Results_Exploret" page and can also be using on the main LLM app
 
-## Screen Shots
+## Screenshots
 
-- # Home Page of the App
+- ### Home Page of the App
 
 ![App Screenshot](Screen_shots/app_front_page.png)
 
-- # Predction Explore 
+- ### Predction Explore 
 
 ![App Screenshot](Screen_shots/Prediction_explore1.png)
 
 ![App Screenshot](Screen_shots/Prediction_explore2.png)
 
-- # Trade Results Explore
+- ### Trade Results Explore
 
 ![App Screenshot](Screen_shots/Trade_Results1.png)
 
