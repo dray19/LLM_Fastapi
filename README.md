@@ -1,14 +1,40 @@
 # LLM Model with FastAPI for Electricity Trade Analysis
 
 ## Overview
+- This repository contains a prototype interactive electricity analytics application aimed at bridging the gap between electricity price predictions and electricity trading results, enabling users without coding experience to explore, analyze, and understand complex electricity market data through guided analytics and LLM-powered insights.
 
-This repository showcases the development of a **Large Language Model (LLM)** powered API using **FastAPI** for analyzing electricity trading data. The focus is to leverage the power of machine learning to analyze, predict, and provide insights into electricity trading trends.
+- The app allows users to import CSV datasets containing electricity forecasts, actual prices, and trading outcomes, and then analyze them in two complementary ways:
+	1.LLM-Driven Analysis
+	    • Users can ask natural-language questions about their data.
+	    • A Hugging Face Large Language Model (LLM) generates Python/Pandas code on the fly to perform custom analysis, aggregations, and transformations.
+	    • This enables flexible, ad-hoc exploration without writing code manually.
+    2.Pre-Built Analytics Sections
+	    • Forecast / Training Analysis:
+            - Pre-selected analyses focused on model training and prediction performance (e.g., distributions, feature behavior).
+	    • Trading Results Analysis:
+            - Pre-selected analyses focused on trading outcomes, gains/losses, signals, and strategy performance.
+
+- The backend is built using FastAPI, providing a lightweight API layer that connects data ingestion, LLM-generated analysis, and structured results. Together, this app serves as a practical tool for exploring how electricity price predictions translate into real-world trading performance.
 
 ## Features
 
 - **FastAPI Implementation**: A web framework for building high-performance APIs, providing robust HTTP handling and ease of integration.
 - **Electricity Trade Analysis**: Use LLM models to analyze intricate electricity trading patterns.
 - **Ease of Deployment**: Engineered for scalability and integration with modern infrastructure.
+
+## LLM Selction (HuggingFace)
+```
+    MODEL_NAME = "Qwen/Qwen2-1.5B-Instruct"
+```
+- Intentionally selected this model because it is small, lightweight, and able to run locally, which makes it well-suited for rapid experimentation, debugging, and development without requiring large GPUs or external inference services.
+- Because this is a prototype, there are known limitations when using a smaller model, including:
+	•	Reduced reasoning depth and accuracy on complex tasks
+	•	Occasional inconsistencies in structured outputs
+	•	Lower performance compared to larger instruction-tuned models
+- In a production environment, this model would be replaced with a larger, more capable model to improve:
+	•	Output quality and consistency
+	•	Reasoning and domain understanding
+	•	Reliability under higher load and more complex prompts
 
 ## Technologies Used
 
@@ -21,7 +47,7 @@ This repository showcases the development of a **Large Language Model (LLM)** po
 1. Create a virtual environment (optional but recommended):
     ```bash
     python -m venv env
-    source env/bin/activate    # On Windows use `env\Scripts\activate`
+    source env/bin/activate    
     ```
 
 2. Install dependencies:
