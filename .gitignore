@@ -25,3 +25,7 @@ test.csv
 ## .ipynb files
 *.ipynb
 .ipynb_checkpoints/
+
+## logs
+logs/
+*.log

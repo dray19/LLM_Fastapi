@@ -88,13 +88,24 @@
     ```bash
     uvicorn main:app --reload
     ```
-   Here, `main` refers to the filename and `app` is the FastAPI instance.
+    - main = the Python filename (main.py)
+    - app = the FastAPI instance inside that file
 
 2. Open your web browser and visit:
     ```
     http://127.0.0.1:8000/docs
     ```
    This will bring up an interactive API documentation generated automatically by FastAPI.
+
+3. Start the Streamlit frontend (in a separate terminal window)
+    ```
+    streamlit run app.py
+    ```
+4. You can start both the FastAPI backend and the Streamlit frontend at the same time using the provided script.
+    - It also saves separate log files for each service.
+    ```
+    sh run_all.sh
+    ```
 
 ## Test Data
 
