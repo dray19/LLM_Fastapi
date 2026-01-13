@@ -69,28 +69,6 @@
     ```
    This will bring up an interactive API documentation generated automatically by FastAPI.
 
-## Project Structure
-
-The following depicts a high-level overview of the project structure:
-
-```
-LLM_Fastapi/
-│
-├── api
-│   └── main.py
-├── app.py
-├── example_trading_data_models493.csv
-├── executor.py
-├── llm.py
-├── README.md
-├── requirements.txt
-├── pages
-│   ├── 2_Prediction_Explorer.py
-│   └── 2_Trade_Results_Explorer.py
-├── test_trade_data.csv
-├── test_trade_results_data.csv
-```
-
 ## Test Data
 
 - **test_trade_data.csv**: Example dataset for the "Prediction_Explorer" page and can also be using on the main LLM app
@@ -101,6 +79,8 @@ LLM_Fastapi/
 - ### Home Page of the App
 
 ![App Screenshot](Screen_shots/app_front_page.png)
+
+![App Screenshot](Screen_shots/App_Front_Page_with LLM_option.png)
 
 - ### Predction Explore 
 

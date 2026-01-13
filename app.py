@@ -16,10 +16,18 @@ if uploaded:
 
     question = st.text_input("Ask a question about the data")
 
+    # --- Model selector ---
+    model_mode = st.selectbox(
+        "LLM Model",
+        ["Base Model", "Updated Model"],
+        index=0
+)
+
     if question:
         payload = {
             "csv_data": df.to_dict(orient="records"),
-            "question": question
+            "question": question,
+            "llm_provider": model_mode.lower()
         }
 
         with st.spinner("Thinking..."):

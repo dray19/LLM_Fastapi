@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import pandas as pd
+from typing import Literal
 
 from llm import ask_llm
+from llm_rag import RAGCodeGen
 from executor import run_pandas_code
 
 app = FastAPI(title="LLM CSV Analyzer")
@@ -13,6 +15,7 @@ app = FastAPI(title="LLM CSV Analyzer")
 class QueryRequest(BaseModel):
     csv_data: list[dict]
     question: str
+    llm_provider: Literal["updated model", "base model",] = "updated model"
 
 
 class QueryResponse(BaseModel):
@@ -30,7 +33,11 @@ def analyze(req: QueryRequest):
     df = pd.DataFrame(req.csv_data)
 
     # Ask LLM for Pandas code
-    code = ask_llm(req.question, df.columns.tolist())
+    if req.llm_provider == "updated model":
+        code = RAGCodeGen(req.question).generate()
+    else:
+        code = ask_llm(req.question, df.columns.tolist())
+
     print(code)
 
     try:
