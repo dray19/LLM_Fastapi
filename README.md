@@ -6,8 +6,11 @@
 - The app allows users to import CSV datasets containing electricity forecasts, actual prices, and trading outcomes, and then analyze them in two complementary ways:
 	- 1.LLM-Driven Analysis
 	    - Users can ask natural-language questions about their data.
-	    - A Hugging Face Large Language Model (LLM) generates Python/Pandas code on the fly to perform custom analysis, aggregations, and transformations.
-	    - This enables flexible, ad-hoc exploration without writing code manually.
+	    - The system supports two Hugging Face LLM options:
+	        - Base model from Hugging Face (general-purpose, no extra training).
+	        - Updated model from Hugging Face that has been fine-tuned using company-specific data via LoRA (more accurate on internal terminology + workflows).
+	- The selected Hugging Face Large Language Model (LLM) generates Python/Pandas code on the fly to perform custom analysis, aggregations, and transformations.
+	- This enables flexible, ad-hoc exploration without writing code manually.
     - 2.Pre-Built Analytics Sections
 	    - Forecast / Training Analysis:
             - Pre-selected analyses focused on model training and prediction performance (e.g., distributions, feature behavior).
@@ -22,7 +25,7 @@
 - **Electricity Trade Analysis**: Use LLM models to analyze intricate electricity trading patterns.
 - **Ease of Deployment**: Engineered for scalability and integration with modern infrastructure.
 
-## LLM Selction (HuggingFace)
+## Base LLM Model
 ```
     MODEL_NAME = "Qwen/Qwen2-1.5B-Instruct"
 ```
@@ -35,6 +38,30 @@
 	•	Output quality and consistency
 	•	Reasoning and domain understanding
 	•	Reliability under higher load and more complex prompts
+
+## Updated LLM Model
+
+- Base Model
+	- Built on Qwen2.5-1.5B-Instruct (1.5B parameters)
+	- Lightweight, instruction-tuned, strong for reasoning + code generation, and efficient enough for local CPU / Apple Silicon environments.
+
+- LoRA Fine-Tuning Overview
+	- Using LoRA (Low-Rank Adaptation), training small adapter weights instead of full model weights for a fast and memory-efficient workflow suitable for local machines.
+
+- Training Data
+	- Training data is generated using create_data/create_train_test_datasets.py
+	- Fine-tuned on ~850 high-quality instruction–response examples focused on real pandas workflows:
+	    - Filtering, sorting, groupby/aggregation
+	    - Feature engineering + column transformations
+	    - Time-series / timestamp logic
+	    - ETL-style data processing patterns
+
+- Training Notes
+	- Optimized LoRA setup for local hardware (CPU / Apple Silicon)
+	- Uses small batches + gradient accumulation for stability
+	- Conservative learning rate and epochs to reduce overfitting while adapting to pandas-style analytics tasks
+
+- You can find more information on this model in the “LLM_model” repo.
 
 ## Technologies Used
 
@@ -80,7 +107,9 @@
 
 ![App Screenshot](Screen_shots/app_front_page.png)
 
-![App Screenshot](Screen_shots/App_Front_Page_with LLM_option.png)
+- ### Home Page of the App with LLM Option
+
+![App Screenshot](Screen_shots/App_Front_Page_with_LLM_option.png)
 
 - ### Predction Explore 
 
